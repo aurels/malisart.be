@@ -5,4 +5,5 @@ SITE="malisart.be"
 PREFIX="/var/www/html"
 
 ssh ${SSH} mkdir -p ${PREFIX}/${SITE}
-scp -r index.html ${SSH}:${PREFIX}/${SITE}/index.html
+scp -r *.html ${SSH}:${PREFIX}/${SITE}/
+scp -r *.css ${SSH}:${PREFIX}/${SITE}/
