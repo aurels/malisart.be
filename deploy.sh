@@ -7,3 +7,4 @@ PREFIX="/var/www/html"
 ssh ${SSH} mkdir -p ${PREFIX}/${SITE}
 scp -r *.html ${SSH}:${PREFIX}/${SITE}/
 scp -r *.css ${SSH}:${PREFIX}/${SITE}/
+scp -r *.png ${SSH}:${PREFIX}/${SITE}/
