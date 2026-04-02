@@ -1,50 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>malisart.be</title>
+		<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f7b733;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%23fc4a1a;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23f39c12;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ctext x='50' y='65' font-family='Arial, sans-serif' font-size='45' font-weight='bold' fill='white' text-anchor='middle'%3Em%3C/text%3E%3C/svg%3E">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+				background: linear-gradient(135deg, #f7b733 0%, #fc4a1a 50%, #f39c12 100%);
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 20px;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			body::before {
+				content: '';
+				position: absolute;
+				width: 500px;
+				height: 500px;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 50%;
+				top: -250px;
+				right: -250px;
+				animation: float 20s infinite ease-in-out;
+			}
+			
+			body::after {
+				content: '';
+				position: absolute;
+				width: 400px;
+				height: 400px;
+				background: rgba(255, 255, 255, 0.08);
+				border-radius: 50%;
+				bottom: -200px;
+				left: -200px;
+				animation: float 15s infinite ease-in-out reverse;
+			}
+			
+			@keyframes float {
+				0%, 100% { transform: translateY(0px) translateX(0px); }
+				50% { transform: translateY(30px) translateX(30px); }
+			}
+			
+			.container {
+				text-align: center;
+				position: relative;
+				z-index: 1;
+				max-width: 600px;
+				width: 100%;
+			}
+			
+			.logo {
+				background: rgba(255, 255, 255, 0.15);
+				backdrop-filter: blur(10px);
+				border: 2px solid rgba(255, 255, 255, 0.3);
+				padding: 30px 50px;
+				border-radius: 20px;
+				margin-bottom: 50px;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+				transition: all 0.3s ease;
+			}
+			
+			.logo:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+			}
+			
+			h1 {
+				font-size: 3.5em;
+				font-weight: 700;
+				color: #fff;
+				letter-spacing: -2px;
+				text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+			}
+			
+			.links {
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+			}
+			
+			.link-card {
+				background: rgba(255, 255, 255, 0.95);
+				padding: 25px 40px;
+				border-radius: 15px;
+				text-decoration: none;
+				color: #d68910;
+				font-size: 1.3em;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.link-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(90deg, transparent, rgba(247, 183, 51, 0.15), transparent);
+				transition: left 0.5s ease;
+			}
+			
+			.link-card:hover::before {
+				left: 100%;
+			}
+			
+			.link-card:hover {
+				transform: translateX(10px);
+				box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+				background: #fff;
+			}
+			
+			.link-card:active {
+				transform: translateX(10px) scale(0.98);
+			}
+			
+			.link-icon {
+				display: inline-block;
+				margin-right: 10px;
+				transition: transform 0.3s ease;
+			}
+			
+			.link-card:hover .link-icon {
+				transform: translateX(5px);
+			}
+			
+			.link-name {
+				display: block;
+				margin-bottom: 5px;
+			}
+			
+			.link-tagline {
+				display: block;
+				font-size: 0.65em;
+				font-weight: 400;
+				color: #666;
+				opacity: 0.8;
+			}
+			
+			@media (max-width: 600px) {
+				h1 {
+					font-size: 2.5em;
+				}
+				
+				.logo {
+					padding: 20px 30px;
+					margin-bottom: 30px;
+				}
+				
+				.link-card {
+					padding: 20px 30px;
+					font-size: 1.1em;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="logo">
+				<h1>malisart.be</h1>
+			</div>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-
-<head>
-  <title>malisart.be</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" type="text/css" href="bulma.css" />
-  <link rel="stylesheet" type="text/css" href="style.css" />
-</head>
-
-<body>
-  <section class="hero is-large is-dark has-text-centered">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title is-size-1">
-          <a href="/">malisart.be</a>
-        </h1>
-      </div>
-    </div>
-  </section>
-
-  <div class="container container-main">
-    <div class="columns">
-      <div class="column is-4 has-text-centered">
-        <div class="box">
-          <a href="https://aurelien.malisart.be">aurélien</a>
-        </div>
-      </div>
-
-      <div class="column is-4 has-text-centered">
-        <div class="box">
-          <a href="http://timothy.malisart.be">timothy</a>
-        </div>
-      </div>
-
-      <div class="column is-4 has-text-centered">
-        <div class="box">
-          <a href="http://sonorisart.be" class="last">sonorisart</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PTN.295866 malisart.be 09353770 -->
-</body>
-
+			<div class="links">
+				<a href="https://aurelien.malisart.be" class="link-card">
+					<span class="link-icon">💻</span>
+					<span class="link-name">aurélien</span>
+					<span class="link-tagline">the software builder</span>
+				</a>
+				<a href="http://timothy.malisart.be" class="link-card">
+					<span class="link-icon">📐</span>
+					<span class="link-name">timothy</span>
+					<span class="link-tagline">the land surveyor</span>
+				</a>
+				<a href="http://sonorisart.be" class="link-card">
+					<span class="link-icon">🔊</span>
+					<span class="link-name">sonorisart</span>
+					<span class="link-tagline">sound system services</span>
+				</a>
+			</div>
+		</div>
+	</body>
 </html>
